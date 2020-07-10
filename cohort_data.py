@@ -1,5 +1,9 @@
 """Functions to parse a file containing student data."""
+# first name, last name, house, adviser, cohort name (name year)
+# instructures are in fake cohort named I
+# ghosts are in fake cohort named G
 
+# initial run of code, said 3 passed and 13 failed. 
 
 def all_houses(filename):
     """Return a set of all house names in the given file.
@@ -15,9 +19,19 @@ def all_houses(filename):
       - set[str]: a set of strings
     """
 
+    data = list(open(filename))
+    data_deconstructed = [person_data.rstrip().split("|") for person_data in data]
     houses = set()
+    for person_list_data in data_deconstructed:
+      if person_list_data[2] == '':
+        pass
+      else:
+        houses.add(person_list_data[2])
+   
 
-    # TODO: replace this with your code
+
+
+    # houses = set(data_deconstructed[2])
 
     return houses
 
